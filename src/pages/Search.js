@@ -52,7 +52,7 @@ export default function Search() {
         <SearchForm />
       </div>
       {movies?.length > 0 && !isLoading ? (
-        <div className="mt-8">
+        <div className="mt-8 mb-6">
           <p className="text-xl font-bold mb-4">Search result: {pathSegment}</p>
           <div className="grid grid-cols-2 md:grid-cols-5 gap-6">
             {movies.map((movie) => {

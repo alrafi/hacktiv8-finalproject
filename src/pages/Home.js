@@ -65,11 +65,11 @@ export default function Home() {
         <SearchForm />
       </div>
       {trending && movies.length > 0 ? (
-        <div className="mt-8">
+        <div className="mt-8 mb-6">
           <p className="text-xl font-bold mb-4">Trending</p>
           {trending && (
             <div className="w-full mb-8 flex h-[480px]">
-              <span className="w-[400px] h-[480-px] bg-[#000000] rounded-l-2xl" />
+              <span className="w-[160px] md:w-[400px] h-[480-px] bg-[#000000] rounded-l-2xl" />
               <div
                 className="featured-wrapper rounded-r-2xl"
                 style={background(trendingIds[trendingId].url)}
