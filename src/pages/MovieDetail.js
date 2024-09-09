@@ -17,7 +17,6 @@ export default function MovieDetail() {
       `https://www.omdbapi.com/?i=${imdbId}&apikey=${apiKey}`
     );
     const data = await res.json();
-    console.log("movie", data);
     setMovie(data);
   };
 

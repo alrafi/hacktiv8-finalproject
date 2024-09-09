@@ -3,29 +3,29 @@ import { Link } from "react-router-dom";
 import SearchForm from "../components/SearchForm";
 import { HashLoader } from "react-spinners";
 
+const trendingIds = [
+  {
+    id: "tt1630029",
+    url: "https://image.tmdb.org/t/p/original/8rpDcsfLJypbO6vREc0547VKqEv.jpg",
+  },
+  {
+    id: "tt1160419",
+    url: "https://image.tmdb.org/t/p/original/eeijXm3553xvuFbkPFkDG6CLCbQ.jpg",
+  },
+  {
+    id: "tt15398776",
+    url: "http://image.tmdb.org/t/p/original/nb3xI8XI3w4pMVZ38VijbsyBqP4.jpg",
+  },
+  {
+    id: "tt4154796",
+    url: "https://image.tmdb.org/t/p/original/h9q0ozwMWy7CK5U7FSZsMVtbsCQ.jpg",
+  },
+];
+
 export default function Home() {
   const [movies, setMovies] = useState([]);
   const [trending, setTrending] = useState(null);
   const [trendingId, setTrendingId] = useState(0);
-
-  const trendingIds = [
-    {
-      id: "tt1630029",
-      url: "https://image.tmdb.org/t/p/original/8rpDcsfLJypbO6vREc0547VKqEv.jpg",
-    },
-    {
-      id: "tt1160419",
-      url: "https://image.tmdb.org/t/p/original/eeijXm3553xvuFbkPFkDG6CLCbQ.jpg",
-    },
-    {
-      id: "tt15398776",
-      url: "http://image.tmdb.org/t/p/original/nb3xI8XI3w4pMVZ38VijbsyBqP4.jpg",
-    },
-    {
-      id: "tt4154796",
-      url: "https://image.tmdb.org/t/p/original/h9q0ozwMWy7CK5U7FSZsMVtbsCQ.jpg",
-    },
-  ];
 
   useEffect(() => {
     getMovies();
@@ -38,7 +38,6 @@ export default function Home() {
     const apiKey = process.env.REACT_APP_API_KEY;
     const res = await fetch(`https://www.omdbapi.com/?s=man&apikey=${apiKey}`);
     const data = await res.json();
-    console.log("data", data);
     setMovies(data.Search);
   };
 
@@ -48,8 +47,6 @@ export default function Home() {
       `https://www.omdbapi.com/?i=${imdbId}&apikey=${apiKey}`
     );
     const data = await res.json();
-    console.log("trending", data);
-    // setMovies(data.Search);
     setTrending(data);
   };
 

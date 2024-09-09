@@ -3,17 +3,26 @@ import { Link } from "react-router-dom";
 import SearchForm from "../components/SearchForm";
 import { HashLoader } from "react-spinners";
 import { Pagination } from "flowbite-react";
+import { useLocation } from "react-router-dom";
 
 export default function Search() {
   const [movies, setMovies] = useState([]);
-  const path = window.location.pathname.split("/");
   const [totalPages, setTotalPages] = useState(0);
   const [currentPage, setCurrentPage] = useState(1);
   const [isLoading, setIsLoading] = useState(true);
+  const location = useLocation();
+  const [pathSegment, setPathSegment] = useState("");
 
   useEffect(() => {
-    getMovies(path[2], 1);
-  }, []);
+    const path = location.pathname.split("/");
+    setPathSegment(path[2]);
+  }, [location.pathname]);
+
+  useEffect(() => {
+    if (pathSegment) {
+      getMovies(pathSegment, 1);
+    }
+  }, [pathSegment]);
 
   const getMovies = async (query, page) => {
     setIsLoading(true);
@@ -22,7 +31,6 @@ export default function Search() {
       `https://www.omdbapi.com/?s=${query}&apikey=${apiKey}&page=${page}`
     );
     const data = await res.json();
-    console.log("data", data);
     setMovies(data.Search);
 
     const _totalPages = Math.ceil(data.totalResults / 10);
@@ -31,9 +39,8 @@ export default function Search() {
   };
 
   const onPageChange = (page) => {
-    console.log("now page", page);
     setCurrentPage(page);
-    getMovies(path[2], page);
+    getMovies(pathSegment, page);
   };
 
   return (
@@ -46,7 +53,7 @@ export default function Search() {
       </div>
       {movies?.length > 0 && !isLoading ? (
         <div className="mt-8">
-          <p className="text-xl font-bold mb-4">Search result: {path[2]}</p>
+          <p className="text-xl font-bold mb-4">Search result: {pathSegment}</p>
           <div className="grid grid-cols-2 md:grid-cols-5 gap-6">
             {movies.map((movie) => {
               return (
