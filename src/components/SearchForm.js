@@ -44,7 +44,7 @@ export default function SearchForm() {
         <input
           type="search"
           id="default-search"
-          className="block w-full p-4 ps-10 text-sm text-gray-900 border border-gray-300 rounded-full bg-gray-50  focus:outline-none"
+          className="block w-full p-4 ps-10 text-base text-gray-900 border border-gray-300 rounded-full bg-gray-50  focus:outline-none"
           placeholder="Search movies..."
           value={localQuery}
           onChange={handleChange}
