@@ -12,7 +12,7 @@ export default function SearchForm() {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    navigate(`/search/${localQuery}`);
+    navigate(`/search/${localQuery}?page=1`);
   };
 
   return (

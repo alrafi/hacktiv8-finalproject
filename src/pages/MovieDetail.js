@@ -24,7 +24,7 @@ export default function MovieDetail() {
     <div className="p-4">
       <div className=" w-full flex justify-between items-center mb-16">
         <Link to="/">
-          <h1 className="font-light text-xl md:text-2xl">Hacktiv8 Movies</h1>
+          <h1 className="font-light text-xl md:text-2xl">H8 Movies</h1>
         </Link>
         <SearchForm />
       </div>
@@ -37,17 +37,31 @@ export default function MovieDetail() {
             className="rounded-2xl object-cover"
           />
           <div className="md:ml-8">
-            <p className="text-4xl uppercase font-light tracking-wide mb-4 mt-6 md:mt-0">
+            <p className="text-2xl md:text-3xl lg:text-4xl uppercase font-light tracking-wide mb-4 mt-6 md:mt-0">
               {movie.Title}
             </p>
             <div className="flex mb-4 space-x-4">
-              <p>{movie?.imdbRating}</p>
+              <div className="flex items-center space-x-1">
+                <img src="/star.png" alt="" className="h-3 md:h-4" />
+                <p className="text-sm md:text-base">{movie?.imdbRating}</p>
+              </div>
               <span>|</span>
-              <p>{movie?.imdbVotes} Reviews</p>
+              <div className="flex items-center space-x-1">
+                <img src="/review.png" alt="" className="h-3 md:h-4" />
+                <p className="text-sm md:text-base">
+                  {movie?.imdbVotes} Reviews
+                </p>
+              </div>
               <span>|</span>
-              <p>{movie?.Runtime}</p>
+              <div className="flex items-center space-x-1">
+                <img src="/video.png" alt="" className="h-3 md:h-4" />
+                <p className="text-sm md:text-base">{movie?.Runtime}</p>
+              </div>
               <span>|</span>
-              <p>{movie?.Year}</p>
+              <div className="flex items-center space-x-1">
+                <img src="/calendar.png" alt="" className="h-3 md:h-4" />
+                <p className="text-sm md:text-base">{movie?.Year}</p>
+              </div>
             </div>
             <p className="font-bold text-lg">Storyline</p>
             <p className="movie-detail-overview mb-4">{movie?.Plot}</p>
