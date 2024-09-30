@@ -1,6 +1,8 @@
 import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
-import SearchForm from "../components/SearchForm";
+import Search from "../components/Search";
+import Header from "../components/Header";
+import Movie from "../components/Movie";
 import { HashLoader } from "react-spinners";
 
 const trendingIds = [
@@ -59,10 +61,8 @@ export default function Home() {
   return (
     <div className="p-4 w-full">
       <div className=" w-full flex justify-between items-center">
-        <Link to="/">
-          <h1 className="font-light text-xl md:text-2xl">H8 Movies</h1>
-        </Link>
-        <SearchForm />
+        <Header title="FinProH8" />
+        <Search />
       </div>
       {trending && movies.length > 0 ? (
         <div className="mt-8 mb-6">
@@ -95,24 +95,7 @@ export default function Home() {
           <div className="grid grid-cols-2 md:grid-cols-5 gap-6">
             {movies?.length > 0 &&
               movies.map((movie) => {
-                return (
-                  <Link
-                    to={`/movie/${movie.imdbID}`}
-                    className=""
-                    key={movie.imdbID}
-                  >
-                    <div className="flex flex-col justify-center items-center">
-                      <img
-                        src={movie.Poster}
-                        alt={movie.Title}
-                        className="rounded-xl h-58 md:h-48 lg:h-72 mb-2"
-                      />
-                      <p className="font-semibold text-sm text-center">
-                        {movie.Title} ({movie.Year})
-                      </p>
-                    </div>
-                  </Link>
-                );
+                return <Movie movie={movie} key={movie.imdbID} />;
               })}
           </div>
         </div>

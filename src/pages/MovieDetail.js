@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
-import { Link } from "react-router-dom";
 import { HashLoader } from "react-spinners";
-import SearchForm from "../components/SearchForm";
+import Search from "../components/Search";
+import Header from "../components/Header";
 
 export default function MovieDetail() {
   const [movie, setMovie] = useState(null);
@@ -23,10 +23,8 @@ export default function MovieDetail() {
   return (
     <div className="p-4">
       <div className=" w-full flex justify-between items-center mb-16">
-        <Link to="/">
-          <h1 className="font-light text-xl md:text-2xl">H8 Movies</h1>
-        </Link>
-        <SearchForm />
+        <Header title="FinProH8" />
+        <Search />
       </div>
 
       {movie ? (

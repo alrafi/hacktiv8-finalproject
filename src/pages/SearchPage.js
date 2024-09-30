@@ -1,11 +1,12 @@
 import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
-import SearchForm from "../components/SearchForm";
+import Search from "../components/Search";
+import Header from "../components/Header";
 import { HashLoader } from "react-spinners";
 import { Pagination } from "flowbite-react";
 import { useLocation, useNavigate } from "react-router-dom";
 
-export default function Search() {
+export default function SearchPage() {
   const navigate = useNavigate();
   const [movies, setMovies] = useState([]);
   const [totalPages, setTotalPages] = useState(0);
@@ -57,10 +58,8 @@ export default function Search() {
   return (
     <div className="p-4">
       <div className=" w-full flex justify-between items-center">
-        <Link to="/">
-          <h1 className="font-light text-xl md:text-2xl">H8 Movies</h1>
-        </Link>
-        <SearchForm />
+        <Header title="FinProH8" />
+        <Search />
       </div>
       {!isLoading ? (
         movies.length > 0 ? (

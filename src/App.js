@@ -1,7 +1,7 @@
 import { Route, Routes } from "react-router-dom";
 import Home from "./pages/Home";
 import MovieDetail from "./pages/MovieDetail";
-import Search from "./pages/Search";
+import SearchPage from "./pages/SearchPage";
 
 function App() {
   return (
@@ -9,7 +9,7 @@ function App() {
       <Routes>
         <Route path="/" element={<Home />} exact />
         <Route path="/movie/:id" element={<MovieDetail />} exact />
-        <Route path="/search/:id" element={<Search />} exact />
+        <Route path="/search/:id" element={<SearchPage />} exact />
       </Routes>
     </div>
   );

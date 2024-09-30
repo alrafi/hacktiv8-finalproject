@@ -1,8 +1,8 @@
-# H8 Movies | Movie Library
+# FinProH8 | Movie Library
 
-![H8 Movies](docs/h8movies.png)
+![FinProH8](docs/finproh8.png)
 
-This is final project on Hacktiv8
+This is final project on Hacktiv8, simple App to show movies list
 
 ### Live
 
